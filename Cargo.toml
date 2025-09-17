@@ -1,6 +1,7 @@
-[package]
-name = "gostop-backend"
+[workspace]
 version = "0.1.0"
 edition = "2024"
+members = ["backend", "engine"]
 
-[dependencies]
+[workspace.dependencies]
+serde = "1.0.225"
