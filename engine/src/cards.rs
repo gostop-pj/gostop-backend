@@ -76,11 +76,30 @@ pub enum Card {
     WillowChodan,        // 초단
     WillowSwallow,       // 제비★
     WillowRainman,       // 오노노 도후(비광)
+
+    /// 보너스 패
+    Bonus1,
+    Bonus2,
 }
 
 impl Card {
+    /// 해당 카드가 보너스 패인지 나타내는 함수
+    pub fn is_bonus(&self) -> bool {
+        match self {
+            Card::Bonus1 | Card::Bonus2 => true,
+            _ => false,
+        }
+    }
+
+    /// 해당 카드가 쌍피인지 나타내는 함수
+    pub fn is_double_pi(&self) -> bool {
+        match self {
+            Card::PaulowniaDoublePi | Card::WillowDoublePi | Card::Bonus1 | Card::Bonus2 => true,
+            _ => false,
+        }
+    }
+
     /// 해당 카드가 광인지 나타내는 함수
-    /// 총 5장의 광카드가 있습니다.
     pub fn is_bright(&self) -> bool {
         match self {
             Card::SonghakCrane |
